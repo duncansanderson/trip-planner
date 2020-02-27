@@ -13,6 +13,9 @@ import NavigationBar from './components/NavigationBar'
 export default {
     components: {
         NavigationBar
+    },
+    created() {
+        this.$store.dispatch('getArticles')
     }
 }
 </script>
