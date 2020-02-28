@@ -9,7 +9,9 @@ export default new Vuex.Store({
         articles: [],
     },
     getters: {
-        articles: state => state.articles.map,
+        articles: state => state.articles,
+        findArticle: state => id => state.articles.find(article => article._id == id),
+        isLoaded: state => !!state.articles.length
     },
     mutations: {
         setArticles(state, articles) {
@@ -18,8 +20,12 @@ export default new Vuex.Store({
     },
     actions: {
         async getArticles(context) {
+            try {
                 const articles = (await axios.get('http://localhost:3000/trip-planner.json')).data
                 context.commit('setArticles', articles)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 })

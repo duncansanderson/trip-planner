@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="navigation">
         <b-navbar toggleable="lg">
             <div class="container">
                 <b-navbar-brand><router-link to="/">VisitScotland Blog</router-link></b-navbar-brand>
@@ -31,3 +31,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.navigation {
+    margin-bottom: 100px;
+}
+</style>
