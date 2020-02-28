@@ -1,3 +1,15 @@
+### Run
+
+Start application:
+
+    `yarn run serve`
+
+Start express server:
+
+    `yarn run start`
+
+---
+
 ### Goal
 
 Your assignment is to implement a TripPlanner Widget & dashboard that records a user's likes on destination articles and a subsequent dashboard to manage their likes.
