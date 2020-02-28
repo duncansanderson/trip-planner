@@ -35,5 +35,14 @@ export default {
 <style lang="scss">
 .navigation {
     margin-bottom: 100px;
+
+    .navbar-brand {
+        font-size: 32px;
+        font-weight: bold;
+
+        a {
+            color: black;
+        }
+    }
 }
 </style>

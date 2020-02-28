@@ -12,8 +12,9 @@
                 <router-link :to="`/article/${article._id}`">Read more</router-link>
                 <b-icon-heart
                     class="icon"
-                    @click="iconClick"
-                    font-scale="2"
+                    @click="iconClick(article._id)"
+                    :font-scale="likedArticles.indexOf(article._id) >= 0 ? 3 : 2"
+                    :class="{ liked: likedArticles.indexOf(article._id) >= 0 }"
                 ></b-icon-heart>
             </b-card>
         </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { BCard, BCardText, BIconHeart} from 'bootstrap-vue'
 
 export default {
@@ -30,9 +31,15 @@ export default {
         BCardText,
         BIconHeart
     },
-    computed: mapState({
-        articles: state => state.articles
-    }),
+    computed: {
+        ...mapGetters([
+            'isLoaded',
+            'likedArticles'
+        ]),
+        ...mapState([
+            'articles'
+        ]),
+    },
     methods: {
         getDays(timestamp) {
             const currentTimestamp = Date.now()
@@ -40,8 +47,12 @@ export default {
             const days = Math.floor(difference / 1000 / 60 / 60 / 24)
             return days
         },
-        iconClick() {
-            alert('click')
+        iconClick(articleId) {
+            if (this.likedArticles.indexOf(articleId) >= 0) {
+                this.$store.dispatch('unlikeArticle', articleId)
+            } else {
+                this.$store.dispatch('likeArticle', articleId)
+            }
         },
     },
 }
@@ -55,9 +66,14 @@ export default {
 
         .icon {
             cursor: pointer;
+            font-weight: bold;
             position: absolute;
             top: 17px;
-            right: 10px;;
+            right: 10px;
+
+            &.liked {
+                color: #af006e;
+            }
         }
     }
 }
