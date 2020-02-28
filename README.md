@@ -1,14 +1,20 @@
-### Run
+### Run locally
 
 Start application:
 
-    `yarn run serve`
+    yarn run serve
 
 Start express server:
 
-    `yarn run start`
+    yarn run start
 
 ---
+
+### TODO
+* Add local storage for likes
+* Add pagination
+* Add animation for like button
+* Update styling for responsiveness
 
 ### Goal
 
