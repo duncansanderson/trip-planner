@@ -36,6 +36,10 @@ export default {
 .navigation {
     margin-bottom: 100px;
 
+    .navbar {
+        border-bottom: 1px solid black;
+    }
+
     .navbar-brand {
         font-size: 32px;
         font-weight: bold;
@@ -43,6 +47,11 @@ export default {
         a {
             color: black;
         }
+    }
+
+    .nav-item a {
+        font-size: 22px;
+        color: black;
     }
 }
 </style>

@@ -9,7 +9,7 @@
             >
                 <b-card-text>{{ article.snippet }}</b-card-text>
                 <b-card-text>Written by {{ article.author }} {{ getDays(article.timestamp) }} days ago</b-card-text>
-                <router-link :to="`/article/${article._id}`">Read more</router-link>
+                <router-link class="read-more" :to="`/article/${article._id}`">Read more</router-link>
                 <b-icon-heart
                     class="icon"
                     @click="iconClick(article._id)"
@@ -74,6 +74,10 @@ export default {
             &.liked {
                 color: #af006e;
             }
+        }
+
+        .read-more {
+            color: #af006e;
         }
     }
 }

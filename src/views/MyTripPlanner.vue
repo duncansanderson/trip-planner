@@ -50,6 +50,10 @@ export default {
 .list-group-item {
     position: relative;
 
+    a {
+        color: #af006e;
+    }
+    
     .icon {
         cursor: pointer;
         position: absolute;
